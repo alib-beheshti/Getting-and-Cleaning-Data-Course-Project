@@ -99,7 +99,7 @@ tBodyGyroJerkMean
 The complete list of variables of each feature vector is available in 'features.txt'
 
 ### Data Cleaning
-The provided MyProject.R file generates a tidy dataset (tidy_data.csv). My_Project.R downloads and unzips the raw data:
+The provided run_analysis.R file generates a tidy dataset (tidy_data.csv). run_analysis.R downloads and unzips the raw data:
 
 library(data.table)
 fileurl<-"https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
@@ -107,7 +107,7 @@ download.file(fileurl,destfile="dataset.zip")
 unzip("./dataset.zip",overwrite=TRUE)
 
 
-After that My_Project.R code performs following five steps on raw data to generate the tidy data:
+After that run_analysis.R code performs following five steps on raw data to generate the tidy data:
 1.Merges the training and the test sets to create one data set.
 
 data_test<-read.table("./UCI HAR Dataset/test/X_test.txt",header=FALSE)
@@ -157,6 +157,6 @@ dt<-data.table(chosen_data)
 dt2<-dt[,lapply(.SD,mean),by="subject,activity"]
 write.table(dt2,file="tidy_dataset.csv",sep=",",row.names = FALSE)
 
-The final tidy data is written in tidy_dataset.csv file.
+The final tidy data is written in tidy_dataset.csv and tidy_dataset.txt files.
 
 

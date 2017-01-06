@@ -44,4 +44,4 @@ colnames(chosen_data)<-name
 #step 5
 dt<-data.table(chosen_data)
 dt2<-dt[,lapply(.SD,mean),by="subject,activity"]
-write.table(dt2,file="tidy_dataset.csv",sep=",",row.names = FALSE)
+write.table(dt2,file="tidy_dataset.txt",row.names = FALSE)
